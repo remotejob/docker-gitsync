@@ -36,7 +36,7 @@ import (
 	"time"
 )
 
-const volMount = "/usr/share/nginx"
+const volMount = "/git"
 
 var flRepo = flag.String("repo", envString("GIT_SYNC_REPO", ""), "git repo url")
 var flBranch = flag.String("branch", envString("GIT_SYNC_BRANCH", "master"), "git branch")
@@ -68,7 +68,7 @@ func init() {
 	} else {
 
 		log.Println("/usr/share/nginx exist delete ")
-		// os.RemoveAll("/usr/share/nginx")
+		os.RemoveAll("/usr/share/nginx")
 
 	}
 

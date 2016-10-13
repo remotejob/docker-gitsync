@@ -1,7 +1,7 @@
-all: container
+all: push
 
 # 0.0 shouldn't clobber any released builds
-TAG = 0.1
+TAG = 0.5
 PREFIX = gcr.io/jntlserv0/git-sync
 
 binary: main.go
@@ -10,8 +10,8 @@ binary: main.go
 container: binary
 	docker build -t $(PREFIX):$(TAG) .
 
-#push: container
-#	gcloud docker push $(PREFIX):$(TAG)
+push: container
+	gcloud docker push $(PREFIX):$(TAG)
 
 clean:
 	docker rmi -f $(PREFIX):$(TAG) || true
